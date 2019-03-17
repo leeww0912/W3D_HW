@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
+
+<body>
+<h1 align="center"><font face="Bookman Old Style">hw0(<a href="https://jsfiddle.net/leeww0912/umns2c6h/109/">jsFiddle</a>)</font></h1>
+<div>
+  <button id='power'>On</button>
+  
+  <img src="https://i.imgur.com/omX5Drl.png" style="position:absolute;top:5vw;left:5vw;width:70vw;z-index:-1">
+  
+</div>
+<!--------------------------------------------------------------->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+class Light {
+  
+  constructor(postop,posleft) {  
+  	// create/append div dynamically
+    // https://stackoverflow.com/questions/14004117/create-div-and-append-div-dynamically
+    this.element = document.createElement ('div');
+    //this = iDiv;
+    this.element.id = 'light';
+    // set element style attribute
+    //https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style
+    this.element.style.cssText = "position:absolute;width:20px;height:20px;border-radius:15px;z-index:1"; 
+	  this.element.style.top = postop;
+    this.element.style.left = posleft;
+    // CSS color property: https://www.w3schools.com/cssref/pr_text_color.asp
+    // hsl: https://www.w3schools.com/colors/colors_hsl.asp
+    this.element.style.background = "hsl(0, 0%, 38%)";
+    document.getElementsByTagName('body')[0].appendChild(this.element);
+  }
+
+	changeColor(hue,col2,col3) {
+  	// https://stackoverflow.com/questions/45147661/javascript-recursion-within-a-class/45147713
+    var self = this;
+  	
+    
+      var huech =hue+40;
+      if(huech>=360){
+          huech -=360;
+      }
+  	  self.element.style.background = "hsl(" + hue + ", "+col2+", "+col3+")";  
+      setTimeout (function() { self.changeColor(huech,col2,col3) } , 500);
+     
+    
+  }
+
+}
+////////////////////////////////
+init();
+
+$('#power').click ( function() {
+	if($('#power').text()=="On"){
+  $('#power').text ("Off");
+  change();
+  }else if($('#power').text()=="Off"){
+  $('#power').text ("On");
+  init();
+  }
+});
+function init() {
+  
+  light = new Light('24vw','30vw');
+  light1 = new Light('13vw','39vw');
+  light2 = new Light('35vw','25vw');
+  light3 = new Light('40vw','50vw');
+  light4 = new Light('27vw','47vw');
+  light5 = new Light('42vw','20vw');
+  light6 = new Light('18vw','33vw');
+  light7 = new Light('50vw','15vw');
+  light8 = new Light('50vw','55vw');
+  }
+function change(){
+  light.changeColor('0','100%','50%');
+  light1.changeColor('39','100%','50%');
+  light2.changeColor('79','100%','50%');
+  light3.changeColor('119','100%','50%');
+  light4.changeColor('159','100%','50%');
+  light5.changeColor('199','100%','50%');
+  light6.changeColor('239','100%','50%');
+  light7.changeColor('279','100%','50%');
+  light8.changeColor('319','100%','50%');
+  
+  
+}
+
+
+
+</script>
+</body>
+
+</html>
