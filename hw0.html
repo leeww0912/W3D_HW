@@ -5,7 +5,7 @@
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
 
 <body>
-<h1 align="center"><font face="Bookman Old Style">hw0(<a href="https://jsfiddle.net/leeww0912/umns2c6h/109/">jsFiddle</a>)</font></h1>
+<h1 align="center"><font face="Bookman Old Style">hw0(<a href="https://jsfiddle.net/leeww0912/umns2c6h/111/">jsFiddle</a>)</font></h1>
 <div>
   <button id='power'>On</button>
   
@@ -44,7 +44,7 @@ class Light {
           huech -=360;
       }
   	  self.element.style.background = "hsl(" + hue + ", "+col2+", "+col3+")";  
-      setTimeout (function() { self.changeColor(huech,col2,col3) } , 500);
+      setTimeout (function() { self.changeColor(huech,col2,col3) } , Math.random()*1000/3);
      
     
   }
