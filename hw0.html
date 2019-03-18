@@ -5,7 +5,7 @@
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
 
 <body>
-<h1 align="center"><font face="Bookman Old Style">hw0(<a href="https://jsfiddle.net/8q54eax9/3/">jsFiddle</a>)</font></h1>
+<h1 align="center"><font face="Bookman Old Style">hw0(<a href="https://jsfiddle.net/8q54eax9/5/">jsFiddle</a>)</font></h1>
 <div>
   <button id='power'>On</button>
   
@@ -48,6 +48,9 @@ class Light {
      
     
   }
+  removelight(){
+     this.element.remove();
+  }
 
 }
 ////////////////////////////////
@@ -59,7 +62,7 @@ $('#power').click ( function() {
   change();
   }else if($('#power').text()=="Off"){
   $('#power').text ("On");
-  init();
+  stop();
   }
 });
 function init() {
@@ -92,13 +95,16 @@ function change(){
     }
   }
 }
-
-
-
-
-
-
-
+function stop(){
+  for(y=0;y<light.length;y++){
+    
+    for(x=0;x<light[y].length;x++){
+       
+        light[y][x].removelight();
+    }
+  }
+  init();
+}
 </script>
 </body>
 
