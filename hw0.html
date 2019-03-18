@@ -37,14 +37,14 @@ class Light {
   changeColor(hue,col2,col3) {
     // https://stackoverflow.com/questions/45147661/javascript-recursion-within-a-class/45147713
     var self = this;
+    var cycle = Math.random()*2000;
     
-    
-      var huech =hue+40;
+      var huech =hue+90;
       if(huech>=360){
           huech -=360;
       }
       self.element.style.background = "hsl(" + hue + ", "+col2+", "+col3+")";  
-      setTimeout (function() { self.changeColor(huech,col2,col3) } , Math.random()*1000/3);
+      setTimeout (function() { self.changeColor(huech,col2,col3) } , cycle);
      
     
   }
@@ -101,6 +101,7 @@ function stop(){
     for(x=0;x<light[y].length;x++){
        
         light[y][x].removelight();
+        
     }
   }
   init();
