@@ -59,6 +59,7 @@ init();
 $('#power').click ( function() {
   if($('#power').text()=="On"){
   $('#power').text ("Off");
+
   change();
   }else if($('#power').text()=="Off"){
   $('#power').text ("On");
@@ -71,7 +72,7 @@ function init() {
       light[k] = new Array();
       light[k].length = k+1;
   }
-  var top = 13;
+  var top = 12;
   var left = 40;
   var min = 5;
   var poptop = 0;
